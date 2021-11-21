@@ -3,7 +3,13 @@
     <transition name="fade">
       <ModalCharacterInfo v-if="showCharacterInfo" />
       <div class="wrapper__principal" v-else>
-        <ListCharacters />
+        <div class="wrapper__list">
+          <h1 style="margin: 0">HEROS AND VILLAINS DATA</h1>
+          <div class="name__character">
+            <h1>{{ nameCharacter }}</h1>
+          </div>
+          <ListCharacters />
+        </div>
         <LateralImageCharacter />
       </div>
     </transition>
@@ -27,6 +33,17 @@ export default {
   computed: {
     showCharacterInfo() {
       return this.$store.state.showCharacterInfo;
+    },
+    nameCharacter() {
+      if (this.$store.state.selected_character) {
+        if (!this.$store.state.selected_character.blocked) {
+          return this.$store.state.selected_character.name;
+        } else {
+          return "";
+        }
+      } else {
+        return "";
+      }
     },
   },
 };
@@ -54,6 +71,21 @@ body {
   display: grid;
   grid-template-columns: 1fr 0.5fr;
   padding: 50px;
+  justify-content: center;
+  .wrapper__list {
+    margin: 100px 0;
+    height: 350px;
+    .name__character {
+      height: 60px;
+      h1 {
+        margin: 0;
+      }
+    }
+  }
+  @media (max-width: 1000px) {
+    padding: 30px;
+    grid-template-columns: 1fr;
+  }
 }
 .fade-enter-active,
 .fade-leave-active {

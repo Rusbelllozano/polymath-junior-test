@@ -7,3 +7,12 @@
 .fade-leave-to {
   opacity: 0;
 }
+.box__image-character {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  .image__character {
+    border-radius: 10px;
+  }
+}

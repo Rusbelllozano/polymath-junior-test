@@ -1,7 +1,7 @@
 <template>
   <div>
     <transition name="fade">
-      <div v-if="selected_character">
+      <div class="box__image-character" v-if="selected_character">
         <transition name="fade">
           <img
             class="image__character"
@@ -9,8 +9,8 @@
             :src="selected_character.images.md"
             :alt="selected_character.name"
           />
-          <div v-else>BLOCKED CHARACTER</div>
         </transition>
+        <div v-if="selected_character.blocked">BLOCKED CHARACTER</div>
       </div>
     </transition>
   </div>
