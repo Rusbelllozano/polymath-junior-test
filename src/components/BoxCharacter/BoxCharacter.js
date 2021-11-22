@@ -10,7 +10,6 @@ export default {
     },
     checkViewed() {
       this.$store.commit("view_character", null);
-    //   this.$store.commit("check_view_character", this.character_info);
     },
     selectCharacter() {
       this.$store.commit("view_character", this.character_info);
